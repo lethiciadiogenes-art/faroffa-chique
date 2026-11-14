@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Faroffa Chic</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Faroffa Chic: moda feminina em Governador Valadares, com novidades todos os dias, atendimento pelo WhatsApp e envio para todo o mundo.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..600,100&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: a fachada de madeira da loja abre a página; o espelho do provador é a única peça ousada.
+   Depois, tudo fica quieto: reboco claro, fotos dos looks e botões de WhatsApp. */
+:root{
+  --madeira:#6a5344;      /* tábua da fachada e do logo */
+  --madeira-funda:#4a382d;
+  --casca:#33261f;        /* texto */
+  --creme:#f3e7cf;        /* letras do logo */
+  --reboco:#ece7e0;       /* parede do provador */
+  --reboco-claro:#f7f4ef;
+  --linha:#d3cabd;
+  --latao:#a9853f;        /* moldura do espelho */
+  --latao-claro:#d3b06a;
+  --zap:#1f7a4d;
+  --display:"Fraunces","Iowan Old Style","Palatino Linotype",Georgia,serif;
+  --texto:"Figtree","Segoe UI",system-ui,sans-serif;
+  --gutter-l:max(20px, env(safe-area-inset-left, 0px));
+  --gutter-r:max(20px, env(safe-area-inset-right, 0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--reboco);color:var(--casca);font-family:var(--texto);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--display);font-variation-settings:"SOFT" 100;font-weight:400;line-height:1.05;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,1.3rem + 2.6vw,3.25rem)}
+:focus-visible{outline:3px solid var(--latao-claro);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.skip{position:absolute;left:-999px;top:0;background:var(--creme);color:var(--casca);padding:.6rem 1rem;z-index:50}
+.skip:focus{left:8px;top:8px}
+
+/* Botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:48px;padding:.7rem 1.4rem;border-radius:999px;font:600 1rem/1.2 var(--texto);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color .15s,color .15s,border-color .15s}
+.btn svg{width:1.15em;height:1.15em;flex:none}
+.btn-creme{background:var(--creme);color:var(--madeira-funda)}
+.btn-creme:hover{background:#fff7e6}
+.btn-fio{border-color:rgba(243,231,207,.55);color:var(--creme);background:transparent}
+.btn-fio:hover{border-color:var(--creme);background:rgba(243,231,207,.08)}
+.btn-madeira{background:var(--madeira-funda);color:var(--creme)}
+.btn-madeira:hover{background:var(--casca)}
+.btn-zap{background:var(--zap);color:#fff}
+.btn-zap:hover{background:#17623d}
+
+/* Fachada: cabeçalho + abertura sobre madeira */
+.fachada{overflow-x:clip;background-color:var(--madeira);color:var(--creme);
+  background-image:
+    repeating-linear-gradient(0deg,rgba(0,0,0,0) 0 118px,rgba(30,18,10,.28) 118px 120px),
+    repeating-linear-gradient(0deg,rgba(255,240,215,.035) 0 3px,rgba(0,0,0,.035) 3px 7px,rgba(255,240,215,0) 7px 13px),
+    linear-gradient(100deg,rgba(40,26,18,.35),rgba(40,26,18,0) 45%,rgba(40,26,18,.3))}
+.topo{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.marca{font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:1.9rem;line-height:1;text-decoration:none;display:inline-flex;align-items:baseline;gap:.3rem;letter-spacing:-.02em}
+.marca small{font-size:.5em;letter-spacing:0;transform:translateY(.35em)}
+.topo nav{display:flex;align-items:center;gap:1.6rem}
+.topo nav a{text-decoration:none;font-weight:500;font-size:.98rem;padding-block:.4rem;border-bottom:1.5px solid transparent}
+.topo nav a:hover{border-color:var(--creme)}
+.topo .btn{min-height:42px;padding:.5rem 1.1rem;font-size:.95rem}
+.abre{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:clamp(2rem,5vw,4.5rem) clamp(3rem,6vw,5.5rem)}
+.abre h1{font-size:clamp(3.1rem,1.4rem + 7.4vw,7rem);font-weight:300;line-height:.93;letter-spacing:-.035em}
+.abre p{max-width:34ch;margin-top:1.6rem;font-size:1.2rem;line-height:1.5;color:#f8eedb}
+.abre .acoes{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.abre address{font-style:normal;margin-top:2.2rem;font-size:.98rem;color:rgba(243,231,207,.85)}
+.abre address a{text-underline-offset:3px}
+.espelhos{position:relative;justify-self:center;width:min(100%,430px);padding:0 0 9% 0}
+.espelho{margin:0;border-radius:26px;padding:7px;background:linear-gradient(135deg,var(--latao-claro),var(--latao) 40%,#7c5f28 70%,var(--latao-claro));box-shadow:0 30px 50px -22px rgba(20,10,4,.75)}
+.espelho img{border-radius:20px;width:100%;aspect-ratio:3/4;object-fit:cover}
+.espelho.grande{width:82%;transform:rotate(-2.2deg)}
+.espelho.pequeno{position:absolute;right:0;bottom:0;width:44%;transform:rotate(3deg);border-radius:20px;padding:5px}
+.espelho.pequeno img{border-radius:15px}
+@media (prefers-reduced-motion:no-preference){
+  .espelho.grande{animation:encosta .9s cubic-bezier(.2,.7,.2,1) both}
+  .espelho.pequeno{animation:encosta2 .9s .15s cubic-bezier(.2,.7,.2,1) both}
+  @keyframes encosta{from{transform:rotate(-7deg) translateY(14px)}to{transform:rotate(-2.2deg)}}
+  @keyframes encosta2{from{transform:rotate(9deg) translateY(18px)}to{transform:rotate(3deg)}}
+}
+
+/* Seções */
+.secao{padding-block:clamp(3.5rem,7vw,6.5rem)}
+.cabeca{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:clamp(1.8rem,3vw,2.8rem)}
+.cabeca p{max-width:46ch;color:#5b4a40}
+
+/* Provador */
+.looks{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.4rem 1.4rem}
+.look{display:flex;flex-direction:column;min-width:0}
+.look img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:6px;background:var(--linha)}
+.look h3{font-size:1.3rem;line-height:1.15;margin-top:.9rem}
+.look p{font-size:.95rem;color:#5b4a40;margin-top:.25rem;margin-bottom:.8rem}
+.look button{margin-top:auto;align-self:flex-start;background:none;border:0;padding:.35rem 0;font:600 .98rem/1.2 var(--texto);color:var(--madeira-funda);cursor:pointer;border-bottom:1.5px solid var(--latao)}
+.look button:hover{color:var(--casca);border-color:var(--casca)}
+.look.escolhido img{outline:3px solid var(--latao);outline-offset:3px}
+.aviso{margin-top:2.4rem;font-size:.95rem;color:#5b4a40}
+
+/* Como comprar */
+.passos-faixa{background:var(--reboco-claro);border-block:1px solid var(--linha)}
+.passos-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(2rem,5vw,5rem);align-items:center}
+.passos-grid>img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px}
+.passos{list-style:none;margin:2rem 0 0;padding:0;counter-reset:p;display:grid;gap:1.6rem}
+.passos li{counter-increment:p;display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:.2rem 1rem;align-items:baseline}
+.passos li::before{content:counter(p);font-family:var(--display);font-variation-settings:"SOFT" 100;font-size:2.6rem;line-height:1;color:var(--latao);grid-row:span 2}
+.passos h3{font-size:1.45rem}
+.passos p{color:#5b4a40;max-width:48ch}
+
+/* A loja */
+.loja-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.loja-fotos{display:grid;grid-template-columns:1.25fr 1fr;gap:1rem;align-items:end}
+.loja-fotos img{width:100%;object-fit:cover;border-radius:6px}
+.loja-fotos img:first-child{aspect-ratio:10/11}
+.loja-fotos img:last-child{aspect-ratio:3/4}
+.loja-texto p{margin-top:1.2rem;max-width:44ch}
+.loja-texto address{font-style:normal;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid var(--linha);font-size:1.1rem;line-height:1.5}
+.loja-texto .acoes{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.6rem}
+.btn-contorno{border-color:var(--madeira-funda);color:var(--madeira-funda);background:transparent}
+.btn-contorno:hover{background:var(--madeira-funda);color:var(--creme)}
+
+/* Atendimento */
+.atende{background:var(--madeira-funda);color:var(--creme)}
+.atende .cabeca p{color:rgba(243,231,207,.85)}
+.escolha{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem 1.2rem;margin-bottom:1.8rem;padding:1rem 1.2rem;border:1.5px solid var(--latao-claro);border-radius:10px;background:rgba(243,231,207,.06)}
+.escolha strong{font-weight:600}
+.escolha button{background:none;border:0;color:var(--creme);font:500 .95rem var(--texto);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.3rem 0}
+.vendedoras{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.2rem}
+.vendedoras li{display:flex;flex-direction:column;gap:.3rem;padding:1.5rem;border:1px solid rgba(243,231,207,.28);border-radius:10px;min-width:0}
+.vendedoras h3{font-size:1.7rem}
+.vendedoras .fone{font-variant-numeric:tabular-nums;color:rgba(243,231,207,.85);user-select:all}
+.vendedoras .btn{margin-top:1rem;align-self:flex-start}
+.gerente{margin-top:2rem;padding-top:1.6rem;border-top:1px solid rgba(243,231,207,.28);display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between}
+.gerente p{max-width:52ch;color:rgba(243,231,207,.9)}
+.gerente a{font-weight:600;text-underline-offset:4px}
+
+/* Rodapé */
+.rodape{background:var(--casca);color:rgba(243,231,207,.82);font-size:.95rem}
+.rodape .wrap{display:flex;flex-wrap:wrap;gap:1rem 2.5rem;justify-content:space-between;align-items:baseline;padding-block:2rem}
+.rodape .marca{font-size:1.5rem;color:var(--creme)}
+.rodape ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1.5rem}
+.rodape a{text-underline-offset:3px}
+
+@media (max-width:900px){
+  .topo nav a:not(.btn){display:none}
+  .abre{grid-template-columns:1fr}
+  .espelhos{width:min(100%,360px)}
+  .looks{grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem 1rem}
+  .passos-grid,.loja-grid{grid-template-columns:1fr}
+  .passos-grid>img{aspect-ratio:4/3;object-position:50% 20%}
+  .vendedoras{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .marca{font-size:1.6rem}
+  .look h3{font-size:1.12rem}
+  .abre .acoes .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#provador">Ir para os looks</a>
+
+<div class="fachada">
+  <header class="wrap topo">
+    <a class="marca" href="#topo" aria-label="Faroffa Chic, início">faroffa <small>chic</small></a>
+    <nav aria-label="Seções">
+      <a href="#provador">Provador</a>
+      <a href="#como-comprar">Como comprar</a>
+      <a href="#loja">A loja</a>
+      <a class="btn btn-creme" href="#atendimento">Falar com uma vendedora</a>
+    </nav>
+  </header>
+
+  <main id="topo">
+  <section class="wrap abre">
+    <div>
+      <h1>Novidades todos os dias.</h1>
+      <p>Moda feminina em Governador Valadares. Escolha o look no provador, chame uma vendedora no WhatsApp e receba onde estiver.</p>
+      <div class="acoes">
+        <a class="btn btn-creme" href="#provador">Ver o provador</a>
+        <a class="btn btn-fio" href="#atendimento"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.4A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.6c0 3.2 2.3 5.8 6 6.4l1.2-1.5-2-1.1-.9.8c-1-.5-1.8-1.3-2.3-2.3l.8-.9-1.1-2z" fill="currentColor" stroke="none"/></svg>Comprar pelo WhatsApp</a>
+      </div>
+      <address>Rua Peçanha, 320, Centro, Governador Valadares, MG.<br>Enviamos para todo o mundo.</address>
+    </div>
+    <div class="espelhos">
+      <figure class="espelho grande"><img src="img/look-02.jpg" width="720" height="960" alt="Vestido longo laranja com cintura rendada, fotografado no espelho do provador da Faroffa Chic" fetchpriority="high"></figure>
+      <figure class="espelho pequeno"><img src="img/look-14.jpg" width="720" height="960" alt="Duas vendedoras com conjuntos de renda em amarelo e off-white" loading="lazy"></figure>
+    </div>
+  </section>
+</div>
+
+<section class="secao" id="provador">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2>O provador de hoje</h2>
+      <p>As peças chegam e vão direto para o espelho. Gostou de alguma? Toque em “Quero este look” e peça pelo WhatsApp.</p>
+    </div>
+    <ul class="looks">
+      <li class="look" data-look="Vestido modelagem Chiclé (tamanhos p e m)">
+        <img src="img/look-02.jpg" width="720" height="960" alt="Vestido longo laranja de gola alta com cintura rendada" loading="lazy">
+        <h3>Vestido modelagem Chiclé</h3>
+        <p>Tamanhos P e M</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Vestido tricot modal (tamanho único, em 3 cores)">
+        <img src="img/look-03.jpg" width="720" height="960" alt="Vestido vermelho justo com franjas na barra" loading="lazy">
+        <h3>Vestido tricot modal</h3>
+        <p>Tamanho único, em 3 cores</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Conjunto elegante (tamanhos p e m)">
+        <img src="img/look-04.jpg" width="720" height="960" alt="Conjunto rosa claro com blusa drapeada e saia longa" loading="lazy">
+        <h3>Conjunto elegante</h3>
+        <p>Tamanhos P e M</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Vestido estampa exclusiva (tamanho p)">
+        <img src="img/look-05.jpg" width="720" height="960" alt="Vestido longo branco com estampa azul" loading="lazy">
+        <h3>Vestido estampa exclusiva</h3>
+        <p>Tamanho P</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Conjunto Chiclé (tamanho m)">
+        <img src="img/look-06.jpg" width="720" height="960" alt="Conjunto longo off-white com estampa marrom" loading="lazy">
+        <h3>Conjunto Chiclé</h3>
+        <p>Tamanho M</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Conjunto tricot modal (tamanho único, veste até o 42)">
+        <img src="img/look-07.jpg" width="720" height="960" alt="Conjunto caramelo de tricot com blusa peplum e saia midi" loading="lazy">
+        <h3>Conjunto tricot modal</h3>
+        <p>Tamanho único, veste até o 42</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Vestido em alfaiataria (tamanhos p, m e g)">
+        <img src="img/look-10.jpg" width="720" height="960" alt="Vestido longo azul claro com argola no decote" loading="lazy">
+        <h3>Vestido em alfaiataria</h3>
+        <p>Tamanhos P, M e G</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Tricot modal em zigue-zague (tamanho único, veste até o 42)">
+        <img src="img/look-12.jpg" width="720" height="960" alt="Vestido longo de tricot off-white em zigue-zague" loading="lazy">
+        <h3>Tricot modal em zigue-zague</h3>
+        <p>Tamanho único, veste até o 42</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Vestido tricot modal (tamanho único)">
+        <img src="img/look-16.jpg" width="720" height="960" alt="Dois vestidos longos de tricot, um caramelo e um areia" loading="lazy">
+        <h3>Vestido tricot modal</h3>
+        <p>Tamanho único</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Conjunto verão (tamanhos p, m e g)">
+        <img src="img/look-23.jpg" width="720" height="960" alt="Conjuntos de top e saia longa em off-white e verde" loading="lazy">
+        <h3>Conjunto verão</h3>
+        <p>Tamanhos P, M e G</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Conjunto risca de giz (tamanhos p, m e g)">
+        <img src="img/look-25.jpg" width="720" height="960" alt="Conjuntos de colete e calça risca de giz em off-white e bege" loading="lazy">
+        <h3>Conjunto risca de giz</h3>
+        <p>Tamanhos P, M e G</p>
+        <button type="button">Quero este look</button>
+      </li>
+      <li class="look" data-look="Vestido viscolinho (tamanhos p, m e g)">
+        <img src="img/look-34.jpg" width="720" height="960" alt="Vestidos midi de alça em verde claro e azul claro" loading="lazy">
+        <h3>Vestido viscolinho</h3>
+        <p>Tamanhos P, M e G</p>
+        <button type="button">Quero este look</button>
+      </li>
+    </ul>
+    <p class="aviso">Peças, cores e tamanhos conforme a disponibilidade em estoque. A vendedora confirma tudo com você antes de fechar o pedido.</p>
+  </div>
+</section>
+
+<section class="secao passos-faixa" id="como-comprar">
+  <div class="wrap passos-grid">
+    <img src="img/look-27.jpg" width="720" height="960" alt="Arara com vestidos de alça em preto, azul, amarelo, areia e terracota" loading="lazy">
+    <div>
+      <h2>Como comprar sem sair de casa</h2>
+      <ol class="passos">
+        <li><h3>Escolha no provador</h3><p>Veja os looks aqui no site ou no Instagram, onde entram peças novas todos os dias.</p></li>
+        <li><h3>Chame uma vendedora</h3><p>Pelo WhatsApp ela mostra as cores, tira as medidas com você e confirma o tamanho.</p></li>
+        <li><h3>Receba onde estiver</h3><p>Enviamos para todo o mundo. Se você mora em Valadares, também pode provar na loja.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="secao" id="loja">
+  <div class="wrap loja-grid">
+    <div class="loja-fotos">
+      <img src="img/loja-fachada.jpg" width="720" height="793" alt="Fachada de madeira da Faroffa Chic no dia da reinauguração, com a fita vermelha na entrada" loading="lazy">
+      <img src="img/loja-interior.jpg" width="720" height="717" alt="Vendedoras atendendo uma cliente no balcão, com araras de roupas ao fundo" loading="lazy">
+    </div>
+    <div class="loja-texto">
+      <h2>A loja, no Centro de Valadares</h2>
+      <p>A Faroffa Chic reinaugurou em um espaço novo, com mais araras e um provador para experimentar com calma. Venha conhecer e montar o look com a ajuda das vendedoras.</p>
+      <p>No Instagram, 151 mil pessoas acompanham o provador todos os dias.</p>
+      <address>Rua Peçanha, 320, Centro<br>Governador Valadares, MG</address>
+      <div class="acoes">
+        <a class="btn btn-madeira" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Pe%C3%A7anha+320+Centro+Governador+Valadares+MG" target="_blank" rel="noopener">Abrir no mapa</a>
+        <a class="btn btn-contorno" href="https://www.instagram.com/faroffachic/" target="_blank" rel="noopener">Seguir @faroffachic</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="secao atende" id="atendimento">
+  <div class="wrap">
+    <div class="cabeca">
+      <h2>Fale com uma vendedora</h2>
+      <p>O atendimento é pelo WhatsApp. Escolha uma vendedora e a conversa já abre com a sua mensagem pronta.</p>
+    </div>
+    <div class="escolha" id="escolha" hidden role="status">
+      <span>Você escolheu: <strong id="escolha-nome"></strong>. Agora toque em uma vendedora para pedir.</span>
+      <button type="button" id="escolha-limpar">Limpar escolha</button>
+    </div>
+    <ul class="vendedoras">
+      <li><h3>Allyne</h3><span>Vendedora online</span><span class="fone">(33) 99846-5364</span><a class="btn btn-zap" data-zap="5533998465364" href="https://wa.me/5533998465364" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.4A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.6c0 3.2 2.3 5.8 6 6.4l1.2-1.5-2-1.1-.9.8c-1-.5-1.8-1.3-2.3-2.3l.8-.9-1.1-2z" fill="currentColor" stroke="none"/></svg>Chamar a Allyne</a></li>
+      <li><h3>Maria Eduarda</h3><span>Vendedora online</span><span class="fone">(33) 99873-8362</span><a class="btn btn-zap" data-zap="5533998738362" href="https://wa.me/5533998738362" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.4A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.6c0 3.2 2.3 5.8 6 6.4l1.2-1.5-2-1.1-.9.8c-1-.5-1.8-1.3-2.3-2.3l.8-.9-1.1-2z" fill="currentColor" stroke="none"/></svg>Chamar a Maria Eduarda</a></li>
+      <li><h3>Sara Silva</h3><span>Vendedora online</span><span class="fone">(33) 99872-1422</span><a class="btn btn-zap" data-zap="5533998721422" href="https://wa.me/5533998721422" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 20.5l1.3-4.4A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.6c0 3.2 2.3 5.8 6 6.4l1.2-1.5-2-1.1-.9.8c-1-.5-1.8-1.3-2.3-2.3l.8-.9-1.1-2z" fill="currentColor" stroke="none"/></svg>Chamar a Sara</a></li>
+    </ul>
+    <div class="gerente">
+      <p>Tem uma sugestão ou reclamação? Fale direto com a Valéria, gerente da loja: <span class="fone" style="user-select:all">(33) 98819-3110</span>.</p>
+      <a href="https://wa.me/5533988193110" target="_blank" rel="noopener">Chamar a Valéria no WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer class="rodape">
+  <div class="wrap">
+    <a class="marca" href="#topo" aria-label="Faroffa Chic, voltar ao início">faroffa <small>chic</small></a>
+    <span>Rua Peçanha, 320, Centro, Governador Valadares, MG</span>
+    <ul>
+      <li><a href="https://www.instagram.com/faroffachic/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="https://linktr.ee/faroffachic" target="_blank" rel="noopener">Linktree</a></li>
+      <li><a href="https://www.instagram.com/nayoassis/" target="_blank" rel="noopener">Por @nayoassis</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var padrao='Olá! Vim pelo site da Faroffa Chic e quero ver as novidades.';
+  var links=document.querySelectorAll('a[data-zap]');
+  var caixa=document.getElementById('escolha'), nome=document.getElementById('escolha-nome');
+  function aplica(look){
+    var msg=look?('Olá! Vim pelo site da Faroffa Chic e quero este look: '+look+'. Ainda tem?'):padrao;
+    links.forEach(function(a){a.href='https://wa.me/'+a.dataset.zap+'?text='+encodeURIComponent(msg)});
+    caixa.hidden=!look; nome.textContent=look||'';
+    document.querySelectorAll('.look').forEach(function(li){li.classList.toggle('escolhido',!!look&&li.dataset.look===look)});
+  }
+  document.querySelectorAll('.look button').forEach(function(b){
+    b.addEventListener('click',function(){
+      aplica(b.closest('.look').dataset.look);
+      document.getElementById('atendimento').scrollIntoView({block:'start'});
+      caixa.setAttribute('tabindex','-1'); caixa.focus({preventScroll:true});
+    });
+  });
+  document.getElementById('escolha-limpar').addEventListener('click',function(){aplica('')});
+  aplica('');
+})();
+</script>
+
+</body>
+</html>
